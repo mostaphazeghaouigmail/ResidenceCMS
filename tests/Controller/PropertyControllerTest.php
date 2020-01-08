@@ -8,7 +8,6 @@ use App\Entity\City;
 use App\Entity\Property;
 use App\Entity\Settings;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\HttpFoundation\Response;
 
 final class PropertyControllerTest extends WebTestCase
 {
@@ -40,7 +39,7 @@ final class PropertyControllerTest extends WebTestCase
             $property->getSlug(),
             $property->getId())
         );
-        $this->assertSame(Response::HTTP_OK, $client->getResponse()->getStatusCode());
+        $this->assertResponseIsSuccessful();
     }
 
     public function testSearch()
